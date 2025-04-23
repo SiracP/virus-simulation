@@ -1,9 +1,3 @@
-//---------------------------------------------
-//-             Siraç Petmezçiler             -
-//-                1306190011                 -
-//-                25.05.2020                 -
-//-Development environment: Visual Studio 2019-
-//---------------------------------------------
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -15,20 +9,20 @@ class Entity {
 public:
     string kod;
     string yer;
-    bool ölebilir = false;
-    bool bağışıklık = true;
+    bool Ã¶lebilir = false;
+    bool baÃ°Ã½Ã¾Ã½klÃ½k = true;
     bool enfekte = false;
     bool hasta = false;
     bool hayatta = true;
     bool yerde = false;
     bool yok = false;
     bool kurtulmus = false;
-    int belirti_gösterme = 0;
-    int ölme = 0;
+    int belirti_gÃ¶sterme = 0;
+    int Ã¶lme = 0;
     int kurtulma = 0;
     int yok_olma = 0;
 };
-bool Yakınlık_karşılaştırma(string a, string b) {
+bool YakÃ½nlÃ½k_karÃ¾Ã½laÃ¾tÃ½rma(string a, string b) {
     string temp = "";
     string temp2 = "";
     int sayac = 0;
@@ -104,25 +98,25 @@ int Ydeki_konumu(string a) {
 
 int main(){
     string line = "",dna = "", yer = "",turn = "";
-    bool hastalık = false;
+    bool hastalÃ½k = false;
     int boyut = 0, turSayisi = 0;
     int boyutBasamak = 0;
-    int entitySayısı = 0;
+    int entitySayÃ½sÃ½ = 0;
     map<int, Entity> Entitybilgi;
     int entitySayac = 0;
     vector <vector<string>> Turbilgi;
     int enfektesayac = 0;
     int hastasayac = 0;
-    int ölüsayac = 0;
+    int Ã¶lÃ¼sayac = 0;
     int kurtulmusayac = 0;
     ifstream efile("INPUT.txt");
     if (efile.is_open()) {
         while (getline(efile, line)) {
             if (line[0] == 'e' && line[1] == 'n' && line[2] == 't' && line[3] == 'i' && line[4] == 't' && line[5] == 'y') {
-                entitySayısı++;
+                entitySayÃ½sÃ½++;
             }
         }
-        //cout << entitySayısı;
+        //cout << entitySayÃ½sÃ½;
         efile.close();
     }
     ifstream file("INPUT.txt");
@@ -169,18 +163,18 @@ int main(){
                     }
                 }
                 if (size(line) > 20) {
-                    hastalık = true;
+                    hastalÃ½k = true;
                 }
                 else
                 {
-                    hastalık = false;
+                    hastalÃ½k = false;
                 }
                 //cout << dna << endl;
                 //cout << yer << endl;
-                //cout << hastalık << endl;
+                //cout << hastalÃ½k << endl;
                 Entitybilgi[entitySayac].kod = dna;
                 Entitybilgi[entitySayac].yer = yer;
-                Entitybilgi[entitySayac].enfekte = hastalık;
+                Entitybilgi[entitySayac].enfekte = hastalÃ½k;
                 entitySayac++;
             }
             // 2 liler
@@ -207,21 +201,21 @@ int main(){
                     }
                 }
                 if (size(line) > 23) {
-                    hastalık = true;
+                    hastalÃ½k = true;
                 }
                 else
                 {
-                    hastalık = false;
+                    hastalÃ½k = false;
                 }
                 //cout << dna << endl;
                 //cout << yer << endl;
-                //cout << hastalık << endl;
+                //cout << hastalÃ½k << endl;
                 Entitybilgi[entitySayac].kod = dna;
                 Entitybilgi[entitySayac].yer = yer;
-                Entitybilgi[entitySayac].enfekte = hastalık;
+                Entitybilgi[entitySayac].enfekte = hastalÃ½k;
                 entitySayac++;
             }
-            // 3 lüler
+            // 3 lÃ¼ler
             if (line[0] == 'e' && line[1] == 'n' && line[2] == 't' && line[3] == 'i' && line[4] == 't' && line[5] == 'y' && '0' <= line[7] && line[7] <= '9' && '0' <= line[8] && line[8] <= '9' && '0' <= line[9] && line[9] <= '9' && line[10] == ' ') {
                 int a;
                 for (int j = 11; j <= 15; j++) {
@@ -245,24 +239,24 @@ int main(){
                     }
                 }
                 if (size(line) > 25) {
-                    hastalık = true;
+                    hastalÃ½k = true;
                 }
                 else
                 {
-                    hastalık = false;
+                    hastalÃ½k = false;
                 }
                 //cout << dna << endl;
                 //cout << yer << endl;
-                //cout << hastalık << endl;
+                //cout << hastalÃ½k << endl;
                 Entitybilgi[entitySayac].kod = dna;
                 Entitybilgi[entitySayac].yer = yer;
-                Entitybilgi[entitySayac].enfekte = hastalık;
+                Entitybilgi[entitySayac].enfekte = hastalÃ½k;
                 entitySayac++;
             }
             // 1 li
             if (line[0] == 't' && line[1] == 'u' && line[2] == 'r' && line[3] == 'n' && line[4] == ' ' && '0' <= line[5] && line[5] <= '9' && line[6] == ' ') {
                 int sayac3 = 0;
-                vector<string>test(entitySayısı+1);
+                vector<string>test(entitySayÃ½sÃ½+1);
                 for (int i = 7; i <= size(line);i++) {
                     if (line[i] != ' ' && i != size(line)) {
                         temp += line[i];
@@ -284,7 +278,7 @@ int main(){
             // 2 li
             if (line[0] == 't' && line[1] == 'u' && line[2] == 'r' && line[3] == 'n' && line[4] == ' ' && '0' <= line[5] && line[5] <= '9' && '0' <= line[6] && line[6] <= '9' && line[7] == ' ') {
                 int sayac3 = 0;
-                vector<string>test(entitySayısı+1);
+                vector<string>test(entitySayÃ½sÃ½+1);
                 for (int i = 8; i <= size(line);i++) {
                     if (line[i] != ' ' && i != size(line)) {
                         temp += line[i];
@@ -303,10 +297,10 @@ int main(){
                 }
                 Turbilgi.push_back(test);
             }
-            // 3lü
+            // 3lÃ¼
             if (line[0] == 't' && line[1] == 'u' && line[2] == 'r' && line[3] == 'n' && line[4] == ' ' && '0' <= line[5] && line[5] <= '9' && '0' <= line[6] && line[6] <= '9' && '0' <= line[7] && line[7] <= '9' && line[8] == ' ') {
                 int eleman = 0;
-                vector<string>test(entitySayısı+1);
+                vector<string>test(entitySayÃ½sÃ½+1);
                 for (int i = 9; i <= size(line);i++) {
                     if (line[i] != ' ' && i != size(line)) {
                         temp += line[i];
@@ -325,10 +319,10 @@ int main(){
                 }
                 Turbilgi.push_back(test);
             }
-            // 4lü
+            // 4lÃ¼
             if (line[0] == 't' && line[1] == 'u' && line[2] == 'r' && line[3] == 'n' && line[4] == ' ' && '0' <= line[5] && line[5] <= '9' && '0' <= line[6] && line[6] <= '9' && '0' <= line[7] && line[7] <= '9' && '0' <= line[8] && line[8] <= '9' && line[9] == ' ') {
                 int eleman = 0;
-                vector<string>test(entitySayısı + 1);
+                vector<string>test(entitySayÃ½sÃ½ + 1);
                 for (int i = 10; i <= size(line);i++) {
                     if (line[i] != ' ' && i != size(line)) {
                         temp += line[i];
@@ -356,30 +350,30 @@ int main(){
         }*/
         file.close();
     }
-    for (int i = 0;i < entitySayısı;i++) {
+    for (int i = 0;i < entitySayÃ½sÃ½;i++) {
         if (Entitybilgi[i].enfekte == true) {
             enfektesayac++;
         }
     }
 
-    // bağışıklık ontrolü
-    for (int i = 0;i < entitySayısı;i++) {
+    // baÃ°Ã½Ã¾Ã½klÃ½k ontrolÃ¼
+    for (int i = 0;i < entitySayÃ½sÃ½;i++) {
         for (int j = 0; j < 5;j++) {
             if (Entitybilgi[i].kod[j] == 'A' || Entitybilgi[i].kod[j] == 'B') {
-                Entitybilgi[i].bağışıklık = false;
+                Entitybilgi[i].baÃ°Ã½Ã¾Ã½klÃ½k = false;
             }
         }
     }
 
-    // ölebilirlik kontrolü
-    for (int i = 0;i < entitySayısı;i++) {
-        int sayacöl = 0;
+    // Ã¶lebilirlik kontrolÃ¼
+    for (int i = 0;i < entitySayÃ½sÃ½;i++) {
+        int sayacÃ¶l = 0;
         for (int j = 0; j < 5;j++) {
             if (Entitybilgi[i].kod[j] == 'A' || Entitybilgi[i].kod[j] == 'B' || Entitybilgi[i].kod[j] == 'C' || Entitybilgi[i].kod[j] == 'D') {
-                sayacöl++;
+                sayacÃ¶l++;
             }
-            if (sayacöl >= 3) {
-                Entitybilgi[i].ölebilir = true;
+            if (sayacÃ¶l >= 3) {
+                Entitybilgi[i].Ã¶lebilir = true;
             }
         }
     }
@@ -387,20 +381,20 @@ int main(){
     ofstream bfile("TURNS.txt");
     if (bfile.is_open()) {
 
-        // Turnlerin başlangıcı
+        // Turnlerin baÃ¾langÃ½cÃ½
         for (int tur = 0; tur < turSayisi; tur++) {
 
-            // Bulaştırma
-            for (int i = 0; i < entitySayısı; i++) {
-                for (int j = i + 1; j < entitySayısı;j++) {
+            // BulaÃ¾tÃ½rma
+            for (int i = 0; i < entitySayÃ½sÃ½; i++) {
+                for (int j = i + 1; j < entitySayÃ½sÃ½;j++) {
                     if ((Entitybilgi[i].hayatta == true || Entitybilgi[i].yerde == true) && (Entitybilgi[j].hayatta == true || Entitybilgi[j].yerde == true) && Entitybilgi[i].yok != true && Entitybilgi[j].yok != true) {
-                        bool asd = Yakınlık_karşılaştırma(Entitybilgi[i].yer, Entitybilgi[j].yer);
+                        bool asd = YakÃ½nlÃ½k_karÃ¾Ã½laÃ¾tÃ½rma(Entitybilgi[i].yer, Entitybilgi[j].yer);
                         if (asd == true) {
-                            if ((Entitybilgi[i].hasta == true || Entitybilgi[i].yerde == true) && Entitybilgi[j].hasta == false && Entitybilgi[j].enfekte == false && Entitybilgi[j].bağışıklık == false && Entitybilgi[j].yerde == false) {
+                            if ((Entitybilgi[i].hasta == true || Entitybilgi[i].yerde == true) && Entitybilgi[j].hasta == false && Entitybilgi[j].enfekte == false && Entitybilgi[j].baÃ°Ã½Ã¾Ã½klÃ½k == false && Entitybilgi[j].yerde == false) {
                                 Entitybilgi[j].enfekte = true;
                                 enfektesayac++;
                             }
-                            else if ((Entitybilgi[j].hasta == true || Entitybilgi[j].yerde == true) && Entitybilgi[i].hasta == false && Entitybilgi[i].enfekte == false && Entitybilgi[i].bağışıklık == false && Entitybilgi[i].yerde == false) {
+                            else if ((Entitybilgi[j].hasta == true || Entitybilgi[j].yerde == true) && Entitybilgi[i].hasta == false && Entitybilgi[i].enfekte == false && Entitybilgi[i].baÃ°Ã½Ã¾Ã½klÃ½k == false && Entitybilgi[i].yerde == false) {
                                 Entitybilgi[i].enfekte = true;
                                 enfektesayac++;
                             }
@@ -410,37 +404,37 @@ int main(){
             }
 
             // Kontroller
-            for (int i = 0; i < entitySayısı;i++) {
+            for (int i = 0; i < entitySayÃ½sÃ½;i++) {
                 if (Entitybilgi[i].enfekte == true) {
-                    if (Entitybilgi[i].belirti_gösterme < 3) {
-                        Entitybilgi[i].belirti_gösterme++;
+                    if (Entitybilgi[i].belirti_gÃ¶sterme < 3) {
+                        Entitybilgi[i].belirti_gÃ¶sterme++;
                     }
-                    else if (Entitybilgi[i].belirti_gösterme == 3) {
+                    else if (Entitybilgi[i].belirti_gÃ¶sterme == 3) {
                         Entitybilgi[i].hasta = true;
                         Entitybilgi[i].enfekte = false;
                         enfektesayac--;
                         hastasayac++;
                     }
                 }
-                if ((Entitybilgi[i].hasta == true || Entitybilgi[i].enfekte == true) && Entitybilgi[i].ölebilir == true) {
-                    if (Entitybilgi[i].ölme < 14) {
-                        Entitybilgi[i].ölme++;
+                if ((Entitybilgi[i].hasta == true || Entitybilgi[i].enfekte == true) && Entitybilgi[i].Ã¶lebilir == true) {
+                    if (Entitybilgi[i].Ã¶lme < 14) {
+                        Entitybilgi[i].Ã¶lme++;
                     }
-                    else if (Entitybilgi[i].ölme == 14) {
+                    else if (Entitybilgi[i].Ã¶lme == 14) {
                         Entitybilgi[i].yerde = true;
                         Entitybilgi[i].hayatta = false;
                         Entitybilgi[i].hasta = false;
                         hastasayac--;
-                        ölüsayac++;
+                        Ã¶lÃ¼sayac++;
                     }
                 }
-                if ((Entitybilgi[i].hasta == true || Entitybilgi[i].enfekte == true) && Entitybilgi[i].ölebilir == false) {
+                if ((Entitybilgi[i].hasta == true || Entitybilgi[i].enfekte == true) && Entitybilgi[i].Ã¶lebilir == false) {
                     if (Entitybilgi[i].kurtulma < 30) {
                         Entitybilgi[i].kurtulma++;
                     }
                     else if (Entitybilgi[i].kurtulma == 30) {
                         Entitybilgi[i].hasta = false;
-                        Entitybilgi[i].bağışıklık = true;
+                        Entitybilgi[i].baÃ°Ã½Ã¾Ã½klÃ½k = true;
                         Entitybilgi[i].kurtulmus = true;
                         kurtulmusayac++;
                         hastasayac--;
@@ -457,14 +451,14 @@ int main(){
                 }
             }
 
-            // yer değiştirme
-            for (int i = 0; i < entitySayısı;i++) {
+            // yer deÃ°iÃ¾tirme
+            for (int i = 0; i < entitySayÃ½sÃ½;i++) {
                 if (Entitybilgi[i].hayatta == true && Entitybilgi[i].yok != true) {
                     Entitybilgi[i].yer = Turbilgi[tur][i];
                 }
             }
 
-            // yazdırma
+            // yazdÃ½rma
             int x = 0, y = 0;
             vector<vector<char>>habitat;
             vector<char>habi(boyut);
@@ -472,7 +466,7 @@ int main(){
                 habi[i] = ' ';
             }
             for (int i = 0; i < boyut; i++) {
-                for (int k = 0; k < entitySayısı;k++) {
+                for (int k = 0; k < entitySayÃ½sÃ½;k++) {
                     x = Xdeki_konumu(Entitybilgi[k].yer);
                     y = Ydeki_konumu(Entitybilgi[k].yer);
                     for (int j = 0; j < boyut; j++) {
@@ -515,12 +509,12 @@ int main(){
 
     ofstream afile("OUTPUT.txt");
     if (afile.is_open()) {
-        afile << "Normal   : " << entitySayısı - hastasayac - enfektesayac - ölüsayac - kurtulmusayac << endl;
+        afile << "Normal   : " << entitySayÃ½sÃ½ - hastasayac - enfektesayac - Ã¶lÃ¼sayac - kurtulmusayac << endl;
         afile << "Infected : " << enfektesayac + hastasayac << endl;
-        afile << "Dead     : " << ölüsayac << endl;
+        afile << "Dead     : " << Ã¶lÃ¼sayac << endl;
         afile << "Recovered: " << kurtulmusayac << endl;
         string a = "";
-        for (int i = 0;i < entitySayısı; i++) {
+        for (int i = 0;i < entitySayÃ½sÃ½; i++) {
             if (Entitybilgi[i].hayatta == true && Entitybilgi[i].enfekte == false && Entitybilgi[i].hasta == false && Entitybilgi[i].yerde == false && Entitybilgi[i].yok == false && Entitybilgi[i].kurtulmus == false) {
                 a = "normal";
             }
